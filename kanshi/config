@@ -1,0 +1,42 @@
+profile {
+    output eDP-1 mode 1366x768@60Hz position 0,0
+}
+
+#profile {
+#    output eDP-1 mode 1366x768@60Hz position 277,1080
+#    output "Nexgen Mediatech Inc. ML-24P50F 0x00000001" mode 1920x1080@60Hz position 0,0
+#}
+
+profile {
+    output eDP-1 mode 1366x768@60Hz position 277,1080
+    output HDMI-A-1 mode 1920x1080@60Hz position 0,0
+    exec swaymsg workspace 1 output eDP-1
+    exec swaymsg workspace 2 output eDP-1
+    exec swaymsg workspace 3 output eDP-1
+    exec swaymsg workspace 4 output eDP-1
+    exec swaymsg workspace 5 output eDP-1
+    exec swaymsg workspace 6 output HDMI-A-1
+    exec swaymsg workspace 7 output HDMI-A-1
+    exec swaymsg workspace 8 output HDMI-A-1
+    exec swaymsg workspace 9 output HDMI-A-1
+    exec swaymsg workspace 10 output HDMI-A-1
+    exec swaymsg workspace 6
+    exec swaymsg workspace 1
+}
+
+profile {
+    output eDP-1 mode 1366x768@60Hz position 1920,0
+    output DP-2 mode 1920x1080@60Hz position 0,0
+    exec swaymsg workspace 1 output eDP-1
+    exec swaymsg workspace 2 output eDP-1
+    exec swaymsg workspace 3 output eDP-1
+    exec swaymsg workspace 4 output eDP-1
+    exec swaymsg workspace 5 output eDP-1
+    exec swaymsg workspace 6 output DP-2
+    exec swaymsg workspace 7 output DP-2
+    exec swaymsg workspace 8 output DP-2
+    exec swaymsg workspace 9 output DP-2
+    exec swaymsg workspace 10 output DP-2
+    exec swaymsg workspace 6
+    exec swaymsg workspace 1
+}
