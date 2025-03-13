@@ -28,7 +28,7 @@ else
 fi
 
 # get date
-date=$(date +'%Y/%m/%d %I:%M:%S %p')
+date=$(date +'%Y/%m/%d %A %I:%M:%S %p')
 
 # get player status
 player_status=$(playerctl -p lowfi.lofigirl status)
