@@ -31,8 +31,8 @@ fi
 date=$(date +'%Y/%m/%d %A %I:%M:%S %p')
 
 # get player status
-player_status=$(playerctl -p lowfi.lofigirl status)
-player_title=$(playerctl -p lowfi.lofigirl metadata title)
+player_status=$(playerctl -p lowfi.chillhop status)
+player_title=$(playerctl -p lowfi.chillhop metadata title)
 
 # print all the information
 echo $player_status $player_title $brightness_percentage $volume $battery $date

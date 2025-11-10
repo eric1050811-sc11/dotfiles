@@ -129,8 +129,9 @@ input "2:10:TPPS/2_IBM_TrackPoint" {
 
     # Exit sway (iogs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' \
-    -Z 'Lock the screen' 'swaylock' \
-    -B 'Exit sway' 'playerctl -p lowfi.lofigirl stop && swaymsg exit' \
+    -Z 'Lock Screen' 'swaylock' \
+    -B 'Exit Sway' 'playerctl -p lowfi.chillhop stop && swaymsg exit' \
+    -Z 'Hibernate' 'systemctl hibernate' \
     -s 'Cancel'
 #
 # Moving around:
@@ -292,24 +293,32 @@ bindsym $mod+Shift+s exec grim -g "$(slurp -d)" && notify-send "Screenshot" "Scr
 bindsym $mod+Shift+Print exec grim && notify-send "Screenshot" "Fullscreen screenshot saved!"
 
 #
+# Firefox or other Web browser
+#
+bindsym $mod+Shift+Return exec firefox
+
+#
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-
-    output *
+# bar {
+#     position top
+# 
+#     output *
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-    status_command while ~/.config/sway/bar_script.sh; do sleep 1; done
+#     status_command while ~/.config/sway/bar_script.sh; do sleep 1; done
 
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+#     separator_symbol |
+
+#     colors {
+#         statusline #ffffff
+#         background #323232
+#         inactive_workspace #32323200 #32323200 #5c5c5c
+#     }
+# }
+exec waybar
 
 #
 # Special window rule for pip window
@@ -317,10 +326,10 @@ bar {
 for_window [title="Picture in picture"] floating enable, resize set width 200 px height 200px, move position 1050 px 500 px, sticky on
 
 # Hide window title bar if needed (change to none)
-default_border normal
+default_border pixel 2
 
 # Window gaps
-gaps inner 10
+gaps inner 5
 
 # run fcitx5
 exec fcitx5
@@ -335,8 +344,8 @@ title_align center
 exec mako
 
 # run lowfi
-exec "killall lowfi; lowfi -mp"
-bindsym $mod+p exec playerctl -p lowfi.lofigirl play-pause
+exec "killall lowfi; lowfi -mp -t chillhop"
+bindsym $mod+p exec playerctl -p lowfi.chillhop play-pause
 
 # monitor layout select, run kanshi
 # use exec_always to prevent config overwrite when reloading sway config
@@ -345,6 +354,9 @@ exec_always "killall kanshi; kanshi"
 # bindsym $mod+Shift+m exec swaynag -t warning -m "Monitor layout" \
 # -Z "Laptop" "swaymsg output eDP-1 mode 1366x768@60hz pos 0 0" \
 # -s "cancel"
+
+# run Sway Audio Idle Inhibit
+# exec sway-audio-idle-inhibit
 
 # Include other config files
 include /etc/sway/config.d/*

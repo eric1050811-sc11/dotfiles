@@ -1,0 +1,76 @@
+{
+    // "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    // "height": 20, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 8, // Gaps between modules (4px)
+
+    // Choose the order of the modules
+    "modules-left": ["sway/workspaces", "sway/mode", "keyboard-state"],
+    "modules-center": ["sway/window"],
+    // "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "clock", "tray"],
+    "modules-right": ["custom/lowfi", "cpu", "temperature", "backlight", "pulseaudio", "battery#BAT0", "battery#BAT1", "clock", "tray"],
+    // "modules-right": ["tray"],
+
+    "sway/mode": {
+        "format": "<span>{}</span>",
+        "tooltip": false
+    },
+
+    "sway/window": {
+        "format": "{app_id}", // Display app name only
+        "tooltip-format": "{title}"
+    },
+
+    "clock": {
+        "interval": 1,
+        "timezone": "Asia/Taipei",
+        "format": "{:%r}",
+        "tooltip-format": "<big>{:%Y/%m/%d %a}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "battery#BAT0": {
+        "bat": "BAT0",
+        "interval": 60,
+        "format": "BAT {capacity}%"
+    },
+
+    "battery#BAT1": {
+        "bat": "BAT1",
+        "interval": 60,
+        "format": "{capacity}%"
+    },
+
+    "pulseaudio": {
+        "format": "VOL {volume}%",
+        "format-muted": "VML {volume}%",
+        "scroll-step": 0 // Disable scroll adjusting volume
+    },
+
+    "backlight": {
+        "format": "BRI {percent}%"
+    },
+
+    "custom/lowfi": {
+        "format": "{}",
+        "tooltip": true,
+        "exec": "~/.config/waybar/player_script.sh",
+        "return-type": "json",
+        "interval": 1,
+        "on-click": "playerctl -p lowfi.chillhop play-pause"
+    },
+
+    "keyboard-state": {
+        "capslock": true,
+        "format": "{icon}",
+        "format-icons": {
+            "locked": "CAPSLOCK",
+            "unlocked": ""
+        }
+    },
+
+    "cpu": {
+        "interval": 2,
+        "format": "CPU {usage:02}%"
+    }
+}
