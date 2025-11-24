@@ -298,6 +298,14 @@ bindsym $mod+Shift+Print exec grim && notify-send "Screenshot" "Fullscreen scree
 bindsym $mod+Shift+Return exec firefox
 
 #
+# Clipboard manager: wl-clipboard & clipman
+#
+
+set $clipboard "~/.local/share/clipman.json"
+exec wl-paste -t text --watch clipman store --max-items 50
+bindsym $mod+y exec clipman pick --tool="STDOUT" --max-items=50 | tofi --prompt-text " Clipboard:" | wl-copy
+
+#
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.

@@ -9,7 +9,7 @@
     "modules-left": ["sway/workspaces", "sway/mode", "keyboard-state"],
     "modules-center": ["sway/window"],
     // "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "clock", "tray"],
-    "modules-right": ["custom/lowfi", "cpu", "temperature", "backlight", "pulseaudio", "battery#BAT0", "battery#BAT1", "clock", "tray"],
+    "modules-right": ["custom/lowfi", "cpu", "temperature", "custom/fan", "backlight", "pulseaudio", "battery#BAT0", "battery#BAT1", "clock", "tray"],
     // "modules-right": ["tray"],
 
     "sway/mode": {
@@ -72,5 +72,11 @@
     "cpu": {
         "interval": 2,
         "format": "CPU {usage:02}%"
-    }
+    },
+
+	"custom/fan": {
+    	"exec": "sensors | awk '/fan1:/ {print $2,$3}'",
+    	"format": "{}",
+   		"interval": 5,
+  	}
 }
