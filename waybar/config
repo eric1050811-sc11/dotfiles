@@ -9,7 +9,8 @@
     "modules-left": ["sway/workspaces", "sway/mode", "keyboard-state"],
     "modules-center": ["sway/window"],
     // "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "clock", "tray"],
-    "modules-right": ["custom/lowfi", "cpu", "temperature", "custom/fan", "backlight", "pulseaudio", "battery#BAT0", "battery#BAT1", "clock", "tray"],
+    // "modules-right": ["custom/lowfi", "cpu", "temperature", "custom/fan", "backlight", "pulseaudio", "battery#BAT0", "battery#BAT1", "clock", "tray"],
+    "modules-right": ["custom/lowfi", "backlight", "pulseaudio", "clock", "tray"],
     // "modules-right": ["tray"],
 
     "sway/mode": {
@@ -25,7 +26,7 @@
     "clock": {
         "interval": 1,
         "timezone": "Asia/Taipei",
-        "format": "{:%r}",
+        "format": "{:%Y/%m/%d %a %r}",
         "tooltip-format": "<big>{:%Y/%m/%d %a}</big>\n<tt><small>{calendar}</small></tt>"
     },
 

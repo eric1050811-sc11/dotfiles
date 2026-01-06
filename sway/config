@@ -241,7 +241,7 @@ input "2:10:TPPS/2_IBM_TrackPoint" {
     # Other function keys
     bindsym XF86Display exec $drun # F7
     bindsym XF86WLAN exec $drun # F8
-    bindsym XF86Tools exec $drun # F9
+    bindsym XF86Tools exec control # F9
     bindsym XF86Search exec $drun # F10
     bindsym XF86LaunchA exec $drun # F11
     bindsym XF86Explorer exec $drun # F12
@@ -349,7 +349,12 @@ exec autotiling
 title_align center
 
 # run mako
-exec mako
+# exec mako
+
+# run sway notification daemon and center
+# exec swaync -c ~/.config/swaync/config.json -s ~/.config/swaync/style.css
+
+# bindsym $mod+n exec swaync-client -t -sw
 
 # run lowfi
 exec "killall lowfi; lowfi -mp -t chillhop"
@@ -365,6 +370,8 @@ exec_always "killall kanshi; kanshi"
 
 # run Sway Audio Idle Inhibit
 # exec sway-audio-idle-inhibit
+
+exec conky
 
 # Include other config files
 include /etc/sway/config.d/*

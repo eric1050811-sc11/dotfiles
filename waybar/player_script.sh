@@ -6,4 +6,4 @@ player_title=$(playerctl -p lowfi.chillhop metadata title)
 
 # print all the information
 # echo "$player_status\n$player_title\nclass"
-printf '{"text": "%s", "tooltip": "Chillhop - %s"}\n' "$player_status" "$player_title"
+printf '{"text": "%s Chillhop - %s", "tooltip": "Chillhop - %s"}\n' "$player_status" "$player_title" "$player_title"
